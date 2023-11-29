@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #msgcont{
+            display: flex;
+            column-gap: 4px;
+        }
+        #msg{
+            
+        }
+        #msg > span{
+            animation: lettertype 100ms normal;
+        }
+        @keyframes lettertype {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        #typingcursor{
+            display: block;
+            background-color: firebrick;
+            width: 3px;
+            height: 20px;
+            border-radius: 1px;
+            animation: blink linear infinite;
+        }
+        @keyframes blink {
+        to {
+            opacity: 0;
+        }
+}
+    </style>
+</head>
+<body onload="typing()">
+    <div id="msgcont">
+        <label id="msg"></label>
+        <span id="typingcursor"></span>
+    </div>
+    <button>Click</button>
+    <script src="./temp.js"></script>
+</body>
+</html>

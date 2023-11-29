@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Typewriter Effect</title>
+</head>
+<style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.typewriter {
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 20px;
+    border-right: 2px solid #000;
+    padding-right: 10px;
+}
+
+.line {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+</style>
+<body>
+    <div class="typewriter">
+        <p class="line">Statement 1</p>
+        <p class="line">Statement 2</p>
+        <p class="line">Statement 3</p>
+    </div>
+</body>
+<script>
+    const lines = document.querySelectorAll(".line");
+const typingSpeed = 50; // Adjust this to control typing speed
+const pauseDuration = 500; // Pause duration at the end of each line
+
+let lineIndex = 0;
+let charIndex = 0;
+let isBackspacing = false;
+
+function type() {
+    if (lineIndex < lines.length) {
+        const line = lines[lineIndex];
+        const text = line.innerText;
+
+        if (!isBackspacing) {
+            line.textContent = text.slice(0, charIndex);
+            charIndex++;
+
+            if (charIndex <= text.length) {
+                setTimeout(type, typingSpeed);
+            } else {
+                isBackspacing = true;
+                setTimeout(type, pauseDuration);
+            }
+        } else {
+            line.textContent = text.slice(0, charIndex);
+            charIndex--;
+
+            if (charIndex >= 0) {
+                setTimeout(type, typingSpeed);
+            } else {
+                isBackspacing = false;
+                lineIndex++;
+                charIndex = 0;
+                setTimeout(type, typingSpeed);
+            }
+        }
+    }
+}
+
+type();
+
+</script>
+</html>

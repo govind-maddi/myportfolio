@@ -1,0 +1,298 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color: inherit;
+}
+a:active{
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+body{
+    position: relative;
+    padding-bottom: 70px;
+}
+body::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    max-height: 1080px;
+    background-image: url("../images/background1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    top: 0;
+    z-index: -1;
+    opacity: 0.5;
+}
+#commonblob1{
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+#commonblob2{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+#project_header_cont{
+    position: relative;
+    display: flex;
+    column-gap: 5px;
+    left: 60px;
+    width: fit-content;
+}
+#project_header_cont > label{
+    position: absolute;
+    font-size: 20px;
+    font-weight: 600;
+    color: #30d5c8;
+    left: 30px;
+    top: 15px;
+}
+#project_header_cont {
+    left: 40px;
+    margin-bottom: 1.5rem;
+}
+#pageheader_illust_1{
+    width: 10px;
+    height: 50px;
+    display: block;
+    background-color: #30d5c8;
+}
+#pageheader_illust_2{
+    height: 50px;
+    width: 236px;
+}#menu_cont{
+    width: 160px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #30d5c8;
+    font-weight: 600;
+    position: fixed;
+    left: -133px;
+    top: 0;
+    background-color: #002144;
+    z-index: 9;
+    border-radius: 10px;
+    transition: left 0.5s ease;
+}
+#menu_cont > header{
+    font-size: 20px;
+}
+#menu_extend_btn{
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%,-50%);
+    background-color: #002144;
+    padding: 4px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#menu_extend_icon {
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+	border-left: 20px solid #30d5c8;
+	border-bottom: 10px solid transparent;
+    position: absolute;
+    right: 11px;
+    z-index: 8;
+    transition: transform 2s ease;
+    /* animation: enlarge 1s linear infinite; */
+}
+
+
+@keyframes enlarge {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+#menu_extend_spinner {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(0deg, rgba(48, 213, 200, 0.5) 33%, #ffffff 100%);
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    position: absolute;
+    left: 10px;
+  }
+  #menu_extend_spinner::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #002144;
+    z-index: 7;
+  }
+  @keyframes rotation {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg)}
+  }
+#menu_cont_mobile{
+    display: none;
+}
+#skill_cards_cont{
+    display: grid;
+    grid-template-columns: 360px 360px;
+    grid-template-rows: repeat(3, 130px);
+    column-gap: 50px;
+    row-gap: 50px;
+    justify-content: center;
+}
+.skill_card{
+    position: relative;
+    width: 360px;
+    height: 130px;
+    color: #002144;/* #30d5c8 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    opacity: 0;
+    bottom: 3px;
+    overflow: hidden;
+}
+.skill_card_bar{
+    display: block;
+    background-color: #30d5c8;
+    width: 0%;
+    height: 10px;
+    
+}
+.skill_card_name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    width: 95%;
+    position: relative;
+    left: 8px;
+    opacity: 0;
+}
+.skill_card_name > article{
+    position: relative;
+}
+.skill_card_name > article > span{
+    display: block;
+    height: 3px;
+    width: 0;
+    opacity: 0.8;
+    background-color: #30d5c8;
+    position: absolute;
+
+}
+.skill_card_caption{
+    width: 80%;
+    opacity: 0.9;
+    font-size: 16px;
+    text-align: left;
+    line-height: calc(16px*1.4);
+    position: relative;
+    bottom: 8px;
+    left: 8px;
+    opacity: 0;
+}
+.skill_card_blob{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.educationblob1{
+    position: absolute;
+    right: -22px;
+    top: -3px;
+}
+.educationblob2{
+    position: absolute;
+    bottom: -15px;
+    right: -8px;
+}
+@media screen and ( max-width:768px ) {
+    #commonblob1{
+        top: -5px;
+        right: -50px;
+    }
+    #commonblob2{
+        bottom: -150px;
+        left: -50px;
+        transform: scale(-1) rotate(272deg);
+        right: initial;
+    }
+    #menu_cont{
+        display: none;
+    }
+    #menu_cont_mobile{
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        height: 60px;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 10;
+        background-color: #002144;
+    }
+    #menu_cont_mobile > header > a >svg{
+        fill: #30d5c8;
+        width: 25px;
+        height: 25px;
+    }
+    #skill_cards_cont{
+        grid-template-columns: 350px;
+        grid-template-rows: repeat(6, 130px);
+    }
+}
+@media screen and (max-width:510px) {
+    #commonblob1 {
+        top: -53px;
+        right: -59px;
+    }
+    #commonblob2 {
+        bottom: -167px;
+        left: -98px;
+    }
+    #skill_cards_cont {
+        grid-template-columns: 300px;
+    }
+    .skill_card{
+        width: 300px;
+    }
+}
