@@ -132,7 +132,7 @@ const typing = () => {
 }
 
 const redirectResume = () => {
-    window.open('https://drive.google.com/file/d/1LGQS5vqzCLSR1jOcQRzAK5KHBr86J2Wc/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1B4oBEpqiqUffO11gl4eWSVOxbQLGygOJ/view?usp=sharing', '_blank');
 }
 
 const redirectLinkedin = (element) => {
